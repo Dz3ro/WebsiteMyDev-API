@@ -10,7 +10,7 @@ function setHeaders(app) {
     );
     res.setHeader(
       "Access-Control-Allow-Headers",
-      "X-Requested-With,content-type"
+      "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
     );
     res.setHeader("Access-Control-Allow-Credentials", true);
     // handle OPTIONS method
