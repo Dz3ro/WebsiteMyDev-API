@@ -3,6 +3,7 @@ const projects = require("../routes/projects");
 const programmingTools = require("../routes/programmingTools");
 const users = require("../routes/users");
 const login = require("../routes/login.js");
+const mail = require("../routes/mail");
 
 function setRoutes(app) {
   app.use(express.json());
@@ -10,6 +11,7 @@ function setRoutes(app) {
   app.use("/api/tools", programmingTools);
   app.use("/api/users", users);
   app.use("/api/login", login);
+  app.use("/api/mail", mail);
 }
 
 module.exports = setRoutes;
