@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { User, validate } = require("../models/user");
+const auth = require("../middleware/auth");
 
 const msg400 = "Bad request";
 const msg400InData = "Item already exists in database";
@@ -22,7 +23,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   const validation = validate(req.body);
   if (validation.error) return res.status(400).send(msg400);
 

@@ -29,7 +29,11 @@ router.post("/", async (req, res) => {
     email: userInData.email,
     __v: userInData.__v,
   };
-  res.header("x-auth-token", token).status(200).send(userDisplay);
+  res
+    .header("x-auth-token", token)
+    .header("access-control-expose-headers", "x-auth-token")
+    .status(200)
+    .send(userDisplay);
 });
 
 module.exports = router;
