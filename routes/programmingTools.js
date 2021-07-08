@@ -65,7 +65,7 @@ router.delete("/:id", auth, async (req, res) => {
     res.status(404).send(msg404);
   }
   try {
-    tool.delete();
+    await tool.delete();
   } catch (e) {
     console.log("failed deleting tool", e);
     res.status(500).send(msg500);
