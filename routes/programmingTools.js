@@ -62,13 +62,14 @@ router.delete("/:id", auth, async (req, res) => {
     tool = await ProgrammingTool.findById(id);
   } catch (e) {
     console.log("could not find the tool with provided id", e);
-    res.status(404).send(msg404);
+    return res.status(404).send(msg404);
   }
   try {
     await tool.delete();
+    return res.status(200);
   } catch (e) {
     console.log("failed deleting tool", e);
-    res.status(500).send(msg500);
+    return res.status(500).send(msg500);
   }
 });
 
