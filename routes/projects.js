@@ -77,7 +77,7 @@ router.delete("/:id", auth, async (req, res) => {
   }
   try {
     await project.delete();
-    return res.status(200);
+    return res.status(200).send("Object deleted");
   } catch (e) {
     console.log("failed deleting project", e);
     res.status(500).send(msg500);
