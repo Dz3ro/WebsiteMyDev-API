@@ -70,7 +70,7 @@ router.delete("/:id", auth, async (req, res) => {
   const id = req.params.id;
   let project;
   try {
-    project = await ProgrammingTool.findById(id);
+    project = await Project.findById(id);
   } catch (e) {
     console.log("could not find the project with provided id", e);
     res.status(404).send(msg404);
