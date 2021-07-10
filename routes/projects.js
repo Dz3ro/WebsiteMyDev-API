@@ -38,8 +38,16 @@ router.post("/", auth, async (req, res) => {
     return res.status(500).send(msg500);
   }
 
-  const { name, tools, urlImgMain, urlImgSec, urlImgAll, urlCode, urlLive } =
-    req.body;
+  const {
+    name,
+    tools,
+    description,
+    urlImgMain,
+    urlImgSec,
+    urlImgAll,
+    urlCode,
+    urlLive,
+  } = req.body;
 
   const project = new Project({
     name,
@@ -49,6 +57,7 @@ router.post("/", auth, async (req, res) => {
     urlImgAll,
     urlCode,
     urlLive,
+    description,
   });
 
   try {
@@ -99,6 +108,7 @@ router.put("/:id", auth, async (req, res) => {
   project.urlImgAll = req.body.urlImgAll;
   project.urlCode = req.body.urlCode;
   project.urlLive = req.body.urlLive;
+  project.description = req.body.description;
 
   try {
     await project.validate();
