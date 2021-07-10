@@ -41,7 +41,7 @@ validate = (object) => {
   const schema = Joi.object({
     name: Joi.string().required().min(1).max(20),
     tools: Joi.array().required(),
-    description: Jaoi.string().min(1).max(1000),
+    description: Joi.string().min(1).max(1000),
     urlImgMain: urlVal,
     urlImgSec: urlVal,
     urlImgAll: Joi.array().items(urlVal),
