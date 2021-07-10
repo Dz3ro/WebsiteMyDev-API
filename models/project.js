@@ -20,6 +20,12 @@ const schemaProject = new mongoose.Schema({
     type: [String],
     required: true,
   },
+  description: {
+    type: String,
+    minlength: 1,
+    maxLength: 1000,
+    trim: true,
+  },
   urlImgMain: strReq,
   urlImgSec: strReq,
   urlImgAll: { type: [strReq], default: null },
@@ -35,6 +41,7 @@ validate = (object) => {
   const schema = Joi.object({
     name: Joi.string().required().min(1).max(20),
     tools: Joi.array().required(),
+    description: Jaoi.string().min(1).max(1000),
     urlImgMain: urlVal,
     urlImgSec: urlVal,
     urlImgAll: Joi.array().items(urlVal),
